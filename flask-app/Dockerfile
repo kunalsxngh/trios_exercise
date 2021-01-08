@@ -5,7 +5,6 @@ FROM python:3.7
 # Copy contents into image
  COPY app.py .
  COPY CreateTable.sql .
- COPY  
 # run pip dependencies
 RUN pip install -r Flask
 RUN pip install sqlAlchemy
