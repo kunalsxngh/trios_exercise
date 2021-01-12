@@ -1,14 +1,12 @@
 #Use Python Image
-FROM python:3.7
-# Install apt dependencies
- RUN apt install update
+FROM python:latest
 # Copy contents into image
- COPY app.py .
- COPY CreateTable.sql .
+ COPY . .
 # run pip dependencies
-RUN pip install -r Flask
-RUN pip install sqlAlchemy
+RUN pip install flask SQLAlchemy pymysql Flask-SQLAlchemy
 # Expose correct port
-EXPOSE 80
+EXPOSE 5000
 # Create an entrypoint
-ENTRYPOINT [ "python", "app.py" ]
+ENTRYPOINT [ "python3", "app.py" ]
+
+ENV DATABASE_PASSWORD=root
